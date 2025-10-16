@@ -95,3 +95,499 @@ body{font-family: Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif; backgro
 @media (max-width: 680px){
   .full-img{ max-height: 70vh; }
 }
+
+
+/* ===== Ajuste v4: imágenes un poco más chicas y separadas ===== */
+.imagenes-full{ gap:32px; }
+.full-link{ display:block; width:100%; }
+.full-img{
+  display:block;
+  width:100%;
+  max-width: 1280px;
+  height:auto;
+  max-height: 65vh;    /* más chica para ver todo el texto */
+  object-fit: contain;
+  background: #0f1419;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  margin: 0 auto;
+  image-rendering: -webkit-optimize-contrast; /* mejora nitidez en WebKit */
+  image-rendering: optimizeQuality;
+}
+@media (max-width: 680px){
+  .full-img{ max-height: 58vh; }
+}
+
+
+/* ===== v5: Fondo más metalizado detrás de las imágenes ===== */
+.full-link{
+  position: relative;
+  display:block;
+  width:100%;
+  max-width: 1320px;           /* un poco más ancho que la imagen */
+  margin: 0 auto;
+  padding: 12px;               /* margen interno para que se vea el metal alrededor */
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background:
+    radial-gradient(1200px 500px at 20% 0%, rgba(255,255,255,.08), transparent 60%),
+    linear-gradient(160deg, #2b3138, #1e2329 60%);
+  box-shadow: 0 16px 40px rgba(0,0,0,.35);
+  overflow: hidden;
+}
+.full-link::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(135deg, rgba(255,255,255,.08) 0 2px, rgba(0,0,0,0) 2px 9px);
+  mix-blend-mode: soft-light;
+  opacity: .55;
+  pointer-events: none;
+}
+/* El <img> sin borde, para que se vea el metal del contenedor alrededor */
+.full-img{
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+}
+
+
+/* ===== HERO HEADER CON LOGOS ===== */
+.hero{ background: transparent; }
+.hero-wrap{
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 10px 18px 6px;
+  display: grid;
+  grid-template-columns: 180px 1fr 180px;
+  align-items: center;
+  gap: 16px;
+}
+@media (max-width: 900px){
+  .hero-wrap{ grid-template-columns: 120px 1fr 120px; }
+}
+@media (max-width: 640px){
+  .hero-wrap{ grid-template-columns: 1fr; gap: 10px; }
+  .logo-card.left, .logo-card.right{ justify-self: center; }
+}
+
+.hero-text{ text-align: center; }
+.hero-text h1{ margin: 0; font-size: clamp(20px, 3.4vw, 28px); letter-spacing: .2px; }
+.hero-text .year{ color: #cfe1f9; }
+.hero-text .sub{ margin: 2px 0 0; color: #aeb9c5; font-size: clamp(12px, 1.8vw, 14px); }
+
+.logo-card{
+  position: relative;
+  height: 90px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: 0 10px 28px rgba(0,0,0,.35);
+  display: grid;
+  place-items: center;
+}
+@media (max-width: 900px){ .logo-card{ height: 76px; } }
+@media (max-width: 640px){ .logo-card{ height: 70px; width: 220px; } }
+
+/* Fondo metalizado para el soporte del logo */
+.logo-card .metal{
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(600px 220px at 10% 0%, rgba(255,255,255,.35), rgba(255,255,255,0) 60%),
+    linear-gradient(180deg, #cfd7df, #9aa7b3 55%, #cdd6df);
+  filter: saturate(1.05) contrast(1.05);
+}
+.logo-card::after{
+  content: "";
+  position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(135deg, rgba(255,255,255,.16) 0 2px, rgba(0,0,0,0) 2px 9px);
+  mix-blend-mode: soft-light; opacity: .5; pointer-events: none;
+}
+
+/* Logo: asegurar legibilidad del texto del logo */
+.logo-card img{
+  position: relative; z-index: 1;
+  max-height: 62%;
+  width: auto;
+  image-rendering: -webkit-optimize-contrast;
+  filter: drop-shadow(0 1px 0 rgba(0,0,0,.35)) contrast(1.15) brightness(1.05);
+}
+
+
+/* ===== v7: Mayor legibilidad del logo ===== */
+.logo-card .metal{
+  background:
+    radial-gradient(700px 260px at 10% 0%, rgba(255,255,255,.55), rgba(255,255,255,0) 60%),
+    linear-gradient(180deg, #f2f5f8, #dfe6ee 58%, #f1f5f9);
+  filter: saturate(1.05) contrast(1.05) brightness(1.02);
+}
+.logo-card::after{
+  background-image: repeating-linear-gradient(135deg, rgba(255,255,255,.12) 0 1px, rgba(0,0,0,0) 1px 9px);
+  opacity: .18;  /* menos rayado para no ensuciar el texto */
+}
+
+/* Aumentamos el tamaño del logo y mejoramos contraste */
+.logo-card img{
+  max-height: 78%;
+  filter: drop-shadow(0 1px 0 rgba(0,0,0,.45)) contrast(1.28) brightness(1.06);
+}
+@media (max-width: 900px){
+  .logo-card img{ max-height: 74%; }
+}
+@media (max-width: 640px){
+  .logo-card img{ max-height: 72%; }
+}
+
+
+/* ===== v8: Logo ARQ (png provisto) con máxima legibilidad ===== */
+.logo-card .metal{
+  background:
+    radial-gradient(700px 260px at 10% 0%, rgba(255,255,255,.65), rgba(255,255,255,0) 60%),
+    linear-gradient(180deg, #f6f8fb, #e7edf4 58%, #f5f8fb);
+  filter: saturate(1.0) contrast(1.03) brightness(1.04);
+}
+.logo-card img{
+  max-height: 85%; /* logos más grandes */
+  filter:
+    drop-shadow(0 0 2px rgba(255,255,255,.85))  /* halo claro para despegar letras finas */
+    drop-shadow(0 1px 0 rgba(0,0,0,.35))       /* sutil sombra inferior */
+    contrast(1.35) brightness(1.08);           /* más contraste del png negro */
+}
+@media (max-width: 900px){ .logo-card img{ max-height: 80%; } }
+@media (max-width: 640px){ .logo-card img{ max-height: 78%; } }
+
+
+/* ===== v9: Máxima legibilidad del logo ===== */
+.hero-wrap{
+  grid-template-columns: 200px 1fr 200px; /* más espacio para subir tamaño */
+}
+@media (max-width: 900px){
+  .hero-wrap{ grid-template-columns: 140px 1fr 140px; }
+}
+
+.logo-card{
+  height: 110px; /* más alto */
+}
+@media (max-width: 900px){ .logo-card{ height: 92px; } }
+@media (max-width: 640px){ .logo-card{ height: 84px; width: 240px; } }
+
+/* Base metal (más claro) abajo del todo */
+.logo-card .metal{ z-index: 0; }
+
+/* Textura rayada, por debajo del logo */
+.logo-card::after{
+  z-index: 0;
+  opacity: .12;
+}
+
+/* NUEVO: placa blanca brillante detrás del logo para contraste extremo */
+.logo-card::before{
+  content: "";
+  position: absolute;
+  inset: 8px;                 /* deja un borde para que se vea el metal */
+  border-radius: 12px;
+  background: linear-gradient(180deg, #ffffff, #eef3f8);
+  box-shadow:
+    inset 0 0 0 1px rgba(0,0,0,.08),
+    0 2px 8px rgba(0,0,0,.12);
+  z-index: 1;                 /* por encima de metal/stripes, por debajo del logo */
+}
+
+/* Logo por encima de todo, más grande y con doble halo */
+.logo-card img{
+  position: relative;
+  z-index: 3;
+  max-height: 86%;
+  filter:
+    drop-shadow(0 0 2px rgba(255,255,255,.95))   /* halo claro */
+    drop-shadow(0 2px 0 rgba(0,0,0,.35))         /* sombra sutil inferior */
+    contrast(1.38) brightness(1.1);
+}
+@media (max-width: 900px){ .logo-card img{ max-height: 82%; } }
+@media (max-width: 640px){ .logo-card img{ max-height: 80%; } }
+
+
+/* ===== v10: Logo blanco sobre placa oscura (máximo contraste) ===== */
+.logo-card{
+  height: 110px;
+}
+.logo-card .metal{
+  z-index: 0;
+  background:
+    radial-gradient(700px 260px at 10% 0%, rgba(255,255,255,.06), rgba(255,255,255,0) 60%),
+    linear-gradient(180deg, #2a323a, #161b21 60%, #232a31);
+  filter: none;
+}
+/* rayado muy sutil */
+.logo-card::after{ z-index: 0; opacity: .10; }
+
+/* quitamos la placa blanca del v9 */
+.logo-card::before{ content:none; }
+
+.logo-card img{
+  position: relative;
+  z-index: 2;
+  max-height: 86%;
+  filter:
+    drop-shadow(0 1px 0 rgba(0,0,0,.65))
+    drop-shadow(0 0 10px rgba(0,0,0,.25));
+}
+@media (max-width: 900px){ .logo-card img{ max-height: 82%; } }
+@media (max-width: 640px){ .logo-card img{ max-height: 80%; } }
+
+
+/* ===== v11: Caption de marca para asegurar lectura del texto ===== */
+.logo-card{
+  display: grid;
+  place-items: center;
+  row-gap: 4px;
+  padding: 6px 10px;
+}
+.logo-card img{ display:block; }
+.logo-caption{
+  position: relative;
+  z-index: 2;
+  display:block;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: .4px;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0,0,0,.7);
+  transform: translateY(-2px);
+  white-space: nowrap;
+}
+@media (max-width: 640px){
+  .logo-caption{ font-size: 11px; letter-spacing: .35px; }
+}
+
+
+/* ===== v12: Logo como texto en vivo (siempre legible) ===== */
+.logo-card{
+  position: relative;
+  height: 110px;
+  display: grid;
+  place-items: center;
+  padding: 6px 10px;
+}
+@media (max-width: 900px){ .logo-card{ height: 96px; } }
+@media (max-width: 640px){ .logo-card{ height: 88px; width: 260px; } }
+
+.logo-live{ position: relative; z-index: 3; text-align: center; line-height: 1; }
+.logo-main{
+  font-family: Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  font-size: clamp(24px, 3.5vw, 34px);
+  color: #ffffff;
+  /* Contorno + sombra para cualquier fondo */
+  text-shadow:
+    -1px -1px 0 rgba(0,0,0,.75),
+     1px -1px 0 rgba(0,0,0,.75),
+    -1px  1px 0 rgba(0,0,0,.75),
+     1px  1px 0 rgba(0,0,0,.75),
+     0   2px  4px rgba(0,0,0,.55);
+}
+.logo-sub{
+  margin-top: 4px;
+  font-weight: 600;
+  font-size: clamp(11px, 1.8vw, 13px);
+  letter-spacing: .4px;
+  color: #ffffff;
+  text-shadow:
+    -1px -1px 0 rgba(0,0,0,.8),
+     1px -1px 0 rgba(0,0,0,.8),
+    -1px  1px 0 rgba(0,0,0,.8),
+     1px  1px 0 rgba(0,0,0,.8),
+     0   2px  3px rgba(0,0,0,.55);
+}
+
+/* Metal & texture keep subtle to not fight the text */
+.logo-card .metal{ z-index: 0; }
+.logo-card::after{ z-index: 0; opacity: .10; }
+
+
+/* ===== v13: Header como la captura (logos L/R + título centrado) ===== */
+.hero{ background: transparent; }
+.hero-wrap{
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 6px 12px 8px;
+  display: grid;
+  grid-template-columns: 220px 1fr 220px;
+  align-items: center;
+  gap: 18px;
+}
+@media (max-width: 980px){
+  .hero-wrap{ grid-template-columns: 160px 1fr 160px; gap: 12px; }
+}
+@media (max-width: 640px){
+  .hero-wrap{ grid-template-columns: 1fr; }
+}
+
+.hero-text{ text-align: center; }
+.hero-text h1{ margin: 0; font-size: clamp(20px, 3.2vw, 28px); color: #e9f0f7; }
+.hero-text .sub{ margin: 4px 0 0; color: #b9c4cf; font-size: clamp(12px, 1.7vw, 14px); }
+
+.logo-card{
+  position: relative;
+  height: 92px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: 0 10px 28px rgba(0,0,0,.35);
+  display: grid;
+  place-items: center;
+}
+@media (max-width: 980px){ .logo-card{ height: 78px; } }
+@media (max-width: 640px){ .logo-card{ height: 72px; width: 240px; justify-self:center; } }
+
+/* Placa metálica clara */
+.logo-card .metal{
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(600px 220px at 12% 0%, rgba(255,255,255,.35), rgba(255,255,255,0) 62%),
+    linear-gradient(180deg, #dfe7ee, #b8c5d1 58%, #dee7ef);
+}
+.logo-card::after{
+  content: ""; position: absolute; inset: 0;
+  background-image: linear-gradient(0deg, rgba(255,255,255,.25), transparent 22%);
+  mix-blend-mode: screen; pointer-events: none;
+  opacity: .35;
+  border-radius: 16px;
+}
+
+/* Logo negro más grande y nítido */
+.logo-card img{
+  position: relative; z-index: 1;
+  max-height: 70%;
+  width: auto;
+  image-rendering: -webkit-optimize-contrast;
+  filter: contrast(1.22) brightness(1.02);
+}
+
+
+/* ===== v14: Header cromado como la captura ===== */
+.hero-wrap{
+  padding: 8px 16px 10px;
+  grid-template-columns: 230px 1fr 230px;
+  gap: 20px;
+}
+@media (max-width: 980px){
+  .hero-wrap{ grid-template-columns: 170px 1fr 170px; gap: 14px; }
+}
+.hero-text h1{ font-size: clamp(22px, 3.6vw, 30px); letter-spacing: .2px; }
+.hero-text .sub{ margin-top: 2px; opacity:.95 }
+
+.logo-card{
+  height: 96px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.25);
+  box-shadow:
+    inset 0 0 0 1px rgba(0,0,0,.18),
+    0 10px 28px rgba(0,0,0,.35);
+}
+@media (max-width: 980px){ .logo-card{ height: 82px; } }
+@media (max-width: 640px){ .logo-card{ height: 74px; width: 248px; } }
+
+/* Placa cromada con brillo superior y sutil bisel */
+.logo-card .metal{
+  position:absolute; inset:0; border-radius:18px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.65), rgba(255,255,255,.15) 26%, rgba(255,255,255,0) 35%) /* brillo superior */,
+    linear-gradient(180deg, #e9f0f7, #c3d0db 58%, #e6edf4);                                           /* cuerpo aluminio */
+}
+.logo-card::before{
+  content:""; position:absolute; inset:0; border-radius:18px;
+  background: radial-gradient(120% 60% at 50% -10%, rgba(255,255,255,.6), rgba(255,255,255,0) 55%);
+  pointer-events:none; mix-blend-mode:screen; opacity:.4;            /* flare superior */
+}
+.logo-card::after{
+  content:""; position:absolute; inset:0; border-radius:18px;
+  background-image: repeating-linear-gradient(135deg, rgba(255,255,255,.14) 0 1px, rgba(0,0,0,0) 1px 9px);
+  opacity:.22; mix-blend-mode:soft-light; pointer-events:none;       /* cepillado sutil */
+}
+
+/* Logo negro, nítido y un pelín más grande */
+.logo-card img{
+  position:relative; z-index:1; max-height:72%; width:auto;
+  image-rendering: -webkit-optimize-contrast;
+  filter: contrast(1.24) brightness(1.03);
+}
+
+
+/* ===== v15: Header compacto como la captura ===== */
+.hero{ background: transparent; }
+.hero-wrap{
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 4px 10px;                 /* banda superior más baja */
+  display: grid;
+  grid-template-columns: 200px 1fr 200px; /* placas más compactas */
+  align-items: center;
+  gap: 12px;
+}
+@media (max-width: 980px){
+  .hero-wrap{ grid-template-columns: 150px 1fr 150px; }
+}
+@media (max-width: 640px){
+  .hero-wrap{ grid-template-columns: 1fr; row-gap: 8px; padding: 6px 10px; }
+}
+
+.hero-text{ text-align: center; }
+.hero-text h1{
+  margin: 0;
+  font-weight: 800;
+  font-size: clamp(20px, 3.1vw, 26px);  /* un poco más chico */
+  color: #eef3f8;
+  letter-spacing: .1px;
+}
+.hero-text .sub{
+  margin: 2px 0 0;
+  font-size: clamp(12px, 1.6vw, 13px);
+  color: #bcc6d0;
+}
+
+/* Placas: más redondas y delgadas, con cromo intenso */
+.logo-card{
+  position: relative;
+  height: 72px;                       /* placa más baja */
+  width: 100%;
+  max-width: 200px;
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,.25);
+  overflow: hidden;
+  box-shadow:
+    inset 0 0 0 1px rgba(0,0,0,.15),
+    0 8px 22px rgba(0,0,0,.35);
+  display: grid; place-items: center;
+}
+@media (max-width: 980px){ .logo-card{ height: 64px; max-width: 150px; } }
+@media (max-width: 640px){ .logo-card{ height: 68px; max-width: 240px; justify-self:center; } }
+
+.logo-card .metal{
+  position:absolute; inset:0; border-radius:22px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.75), rgba(255,255,255,.18) 24%, rgba(255,255,255,0) 36%), /* brillo superior */
+    linear-gradient(180deg, #edf3f9, #c7d4de 58%, #eaf0f6);                                              /* cuerpo */
+}
+
+.logo-card::before{
+  content:""; position:absolute; inset:0; border-radius:22px;
+  background: radial-gradient(120% 70% at 50% -20%, rgba(255,255,255,.6), rgba(255,255,255,0) 55%);
+  mix-blend-mode: screen; opacity:.45; pointer-events:none;
+}
+.logo-card::after{
+  content:""; position:absolute; inset:0; border-radius:22px;
+  background-image: repeating-linear-gradient(135deg, rgba(255,255,255,.16) 0 1px, rgba(0,0,0,0) 1px 9px);
+  opacity:.2; mix-blend-mode: soft-light; pointer-events:none;
+}
+
+/* Logo negro un pelín mayor y muy nítido */
+.logo-card img{
+  position: relative; z-index:1;
+  max-height: 68%;
+  width: auto;
+  image-rendering: -webkit-optimize-contrast;
+  filter: contrast(1.25) brightness(1.04);
+}
