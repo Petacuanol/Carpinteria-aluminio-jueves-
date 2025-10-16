@@ -151,3 +151,65 @@ body{font-family: Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif; backgro
   border-radius: 8px;
   background: transparent;
 }
+
+
+/* ===== HERO HEADER CON LOGOS ===== */
+.hero{ background: transparent; }
+.hero-wrap{
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 10px 18px 6px;
+  display: grid;
+  grid-template-columns: 180px 1fr 180px;
+  align-items: center;
+  gap: 16px;
+}
+@media (max-width: 900px){
+  .hero-wrap{ grid-template-columns: 120px 1fr 120px; }
+}
+@media (max-width: 640px){
+  .hero-wrap{ grid-template-columns: 1fr; gap: 10px; }
+  .logo-card.left, .logo-card.right{ justify-self: center; }
+}
+
+.hero-text{ text-align: center; }
+.hero-text h1{ margin: 0; font-size: clamp(20px, 3.4vw, 28px); letter-spacing: .2px; }
+.hero-text .year{ color: #cfe1f9; }
+.hero-text .sub{ margin: 2px 0 0; color: #aeb9c5; font-size: clamp(12px, 1.8vw, 14px); }
+
+.logo-card{
+  position: relative;
+  height: 90px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: 0 10px 28px rgba(0,0,0,.35);
+  display: grid;
+  place-items: center;
+}
+@media (max-width: 900px){ .logo-card{ height: 76px; } }
+@media (max-width: 640px){ .logo-card{ height: 70px; width: 220px; } }
+
+/* Fondo metalizado para el soporte del logo */
+.logo-card .metal{
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(600px 220px at 10% 0%, rgba(255,255,255,.35), rgba(255,255,255,0) 60%),
+    linear-gradient(180deg, #cfd7df, #9aa7b3 55%, #cdd6df);
+  filter: saturate(1.05) contrast(1.05);
+}
+.logo-card::after{
+  content: "";
+  position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(135deg, rgba(255,255,255,.16) 0 2px, rgba(0,0,0,0) 2px 9px);
+  mix-blend-mode: soft-light; opacity: .5; pointer-events: none;
+}
+
+/* Logo: asegurar legibilidad del texto del logo */
+.logo-card img{
+  position: relative; z-index: 1;
+  max-height: 62%;
+  width: auto;
+  image-rendering: -webkit-optimize-contrast;
+  filter: drop-shadow(0 1px 0 rgba(0,0,0,.35)) contrast(1.15) brightness(1.05);
+}
