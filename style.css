@@ -360,3 +360,48 @@ body{font-family: Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif; backgro
 @media (max-width: 640px){
   .logo-caption{ font-size: 11px; letter-spacing: .35px; }
 }
+
+
+/* ===== v12: Logo como texto en vivo (siempre legible) ===== */
+.logo-card{
+  position: relative;
+  height: 110px;
+  display: grid;
+  place-items: center;
+  padding: 6px 10px;
+}
+@media (max-width: 900px){ .logo-card{ height: 96px; } }
+@media (max-width: 640px){ .logo-card{ height: 88px; width: 260px; } }
+
+.logo-live{ position: relative; z-index: 3; text-align: center; line-height: 1; }
+.logo-main{
+  font-family: Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  font-size: clamp(24px, 3.5vw, 34px);
+  color: #ffffff;
+  /* Contorno + sombra para cualquier fondo */
+  text-shadow:
+    -1px -1px 0 rgba(0,0,0,.75),
+     1px -1px 0 rgba(0,0,0,.75),
+    -1px  1px 0 rgba(0,0,0,.75),
+     1px  1px 0 rgba(0,0,0,.75),
+     0   2px  4px rgba(0,0,0,.55);
+}
+.logo-sub{
+  margin-top: 4px;
+  font-weight: 600;
+  font-size: clamp(11px, 1.8vw, 13px);
+  letter-spacing: .4px;
+  color: #ffffff;
+  text-shadow:
+    -1px -1px 0 rgba(0,0,0,.8),
+     1px -1px 0 rgba(0,0,0,.8),
+    -1px  1px 0 rgba(0,0,0,.8),
+     1px  1px 0 rgba(0,0,0,.8),
+     0   2px  3px rgba(0,0,0,.55);
+}
+
+/* Metal & texture keep subtle to not fight the text */
+.logo-card .metal{ z-index: 0; }
+.logo-card::after{ z-index: 0; opacity: .10; }
