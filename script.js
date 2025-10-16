@@ -1,8 +1,9 @@
-// Marca el link activo al hacer scroll y compensa header fijo
+// Marca el link activo al hacer scroll
 (function(){
   const links = document.querySelectorAll('.nav a');
   const ids = Array.from(links).map(a => a.getAttribute('href').slice(1));
   const sections = ids.map(id => document.getElementById(id)).filter(Boolean);
+  if (!('IntersectionObserver' in window)) return;
   const obs = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{
       if(e.isIntersecting){

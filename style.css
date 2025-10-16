@@ -5,7 +5,6 @@
   --muted:#c4ccd4;
   --line:#3a434b;
   --panel:#242a30;
-  --accent:#66b1ff;
 }
 *{box-sizing:border-box}
 html,body{margin:0;padding:0;scroll-behavior:smooth}
@@ -13,55 +12,52 @@ body{font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg)
 
 /* ====== Header ====== */
 .site-header{position:sticky;top:0;z-index:50;background:rgba(20,22,25,.78);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
-.wrap{max-width:1200px;margin:0 auto;padding:12px 18px;display:flex;align-items:center;justify-content:space-between}
+.wrap{max-width:1400px;margin:0 auto;padding:12px 18px;display:flex;align-items:center;justify-content:space-between}
 .brand{font-size:18px;margin:0}
 .nav a{color:var(--muted);text-decoration:none;margin-left:14px;padding:8px 10px;border-radius:10px}
 .nav a:hover{color:#fff;background:#2b3238}
 
 /* ====== Main ====== */
-.site-main{max-width:1200px;margin:0 auto;padding:24px 18px}
-
-/* ====== Secciones de módulos ====== */
+.site-main{max-width:1400px;margin:0 auto;padding:24px 18px}
 .section{margin:28px 0}
 .section h2{margin:0 0 14px;font-size:clamp(22px,3.6vw,30px)}
+
+/* ====== Grids de módulos ====== */
+.grid{display:grid; gap:16px; margin:14px 0}
+.grid.five{grid-template-columns: repeat(5, 1fr)}
+.grid.four{grid-template-columns: repeat(4, 1fr)}
+@media (max-width: 1200px){ .grid.five{grid-template-columns: repeat(3, 1fr)} .grid.four{grid-template-columns: repeat(3, 1fr)} }
+@media (max-width: 900px){ .grid.five, .grid.four{grid-template-columns: repeat(2, 1fr)} }
+@media (max-width: 560px){ .grid.five, .grid.four{grid-template-columns: 1fr} }
+
 .mod{
   background:var(--panel);
   border:1px solid var(--line);
   border-radius:14px;
-  padding:16px;
-  margin:12px 0;
+  padding:12px;
   box-shadow:0 12px 28px rgba(0,0,0,.3);
+  display:flex; flex-direction:column; gap:10px;
 }
-.mod h3{margin:0 0 10px}
+.mod h3{margin:0}
+.mod p{margin:0;color:var(--muted)}
 .btn{display:inline-block;padding:10px 14px;border-radius:999px;border:1px solid var(--line);text-decoration:none;color:var(--ink);background:#2b3238}
 .btn:hover{background:#313941}
-.mod.mod-cat{background:linear-gradient(180deg,#26303a,#20262c)}
+.mod-cat{background:linear-gradient(180deg,#26303a,#20262c)}
 
-/* ====== Video responsive (iframe) ====== */
-.video-slot{ position:relative; padding-top:56.25%; background:#0e1116; border:1px solid var(--line); border-radius:10px; overflow:hidden; }
-.video-slot iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+/* ====== Video responsive ====== */
+.video{position:relative; padding-top:56.25%; background:#0e1116; border:1px solid var(--line); border-radius:10px; overflow:hidden}
+.video iframe{position:absolute; inset:0; width:100%; height:100%; border:0}
 
-/* ====== Índices al final ====== */
-.indices{margin:40px 0 0 0}
+/* ====== Índices ====== */
+.indices{margin:32px 0 0}
 .indice{
-  position:relative;
+  width:100%;
   height:100vh;
   min-height:520px;
-  width:100%;
-  margin:0;
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-  display:grid; place-items:center;
-  background-size:cover; background-position:center;
-  overflow:hidden;
+  background-size:cover;
+  background-position:center;
 }
-.indice::after{
-  content:""; position:absolute; inset:0; pointer-events:none;
-  background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.08)0 2px,rgba(0,0,0,0)2px 8px);
-  mix-blend-mode:soft-light; opacity:.55;
-}
-.indice figcaption{position:relative;z-index:1;background:rgba(36,42,48,.55);border:1px solid var(--line);border-radius:12px;padding:10px 14px}
-.indice h3{margin:0;color:#dfe8f1}
+/* sin overlays ni botones; solo la imagen */
 
 /* ====== Footer ====== */
 .site-footer{border-top:1px solid var(--line);color:var(--muted);padding:24px 18px;text-align:center}
