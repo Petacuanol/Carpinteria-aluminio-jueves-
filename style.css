@@ -238,3 +238,21 @@ body{font-family: Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif; backgro
 @media (max-width: 640px){
   .logo-card img{ max-height: 72%; }
 }
+
+
+/* ===== v8: Logo ARQ (png provisto) con máxima legibilidad ===== */
+.logo-card .metal{
+  background:
+    radial-gradient(700px 260px at 10% 0%, rgba(255,255,255,.65), rgba(255,255,255,0) 60%),
+    linear-gradient(180deg, #f6f8fb, #e7edf4 58%, #f5f8fb);
+  filter: saturate(1.0) contrast(1.03) brightness(1.04);
+}
+.logo-card img{
+  max-height: 85%; /* logos más grandes */
+  filter:
+    drop-shadow(0 0 2px rgba(255,255,255,.85))  /* halo claro para despegar letras finas */
+    drop-shadow(0 1px 0 rgba(0,0,0,.35))       /* sutil sombra inferior */
+    contrast(1.35) brightness(1.08);           /* más contraste del png negro */
+}
+@media (max-width: 900px){ .logo-card img{ max-height: 80%; } }
+@media (max-width: 640px){ .logo-card img{ max-height: 78%; } }
