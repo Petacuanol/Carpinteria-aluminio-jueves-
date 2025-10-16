@@ -3,101 +3,90 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Curso de Carpintería de Aluminio — Módulos</title>
-  <style>
-    :root{
-      --ink:#e9eef3; --muted:#c4ccd4; --metal:#1f2328; --line:#3a434b; --card:#242a30; --card-line:#323b44;
-      --shadow:0 12px 28px rgba(0,0,0,.35); --brand:#66b1ff;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0; scroll-behavior:smooth;}
-    body{font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif; background: var(--metal); color: var(--ink); line-height:1.55}
-    header{position:sticky; top:0; z-index:50; backdrop-filter: blur(6px); background: rgba(20,22,25,.75); border-bottom:1px solid var(--line);}
-    .wrap{max-width:1200px; margin:0 auto; padding:12px 18px; display:flex; align-items:center; justify-content:space-between}
-    .brand{font-weight:700; letter-spacing:.2px}
-    .brand small{display:block; font-weight:400; color:var(--muted)}
-    nav a{color:var(--muted); text-decoration:none; margin-left:14px; padding:8px 10px; border-radius:10px}
-    nav a:hover{color:#fff; background:#2b3238}
-    nav a.active{color:#0c2035; background:linear-gradient(180deg,var(--brand),#5298df)}
-    :target::before{content:""; display:block; height:64px; margin-top:-64px; visibility:hidden;}
-    .indice{display:flex; flex-direction:column}
-    .indice .foto{position:relative; height:100vh; min-height:520px; width:100%; display:grid; place-items:center; overflow:hidden; border-bottom:1px solid var(--line);
-      background: radial-gradient(1200px 600px at 30% 30%, rgba(255,255,255,.06), transparent 60%), linear-gradient(120deg,#262b31,#1f2328);
-      background-size:cover; background-position:center;}
-    .foto::after{content:""; position:absolute; inset:0; pointer-events:none; background-image: repeating-linear-gradient(135deg, rgba(255,255,255,.08) 0 2px, rgba(0,0,0,0) 2px 8px); mix-blend-mode: soft-light; opacity:.55;}
-    .foto .title{position:relative; z-index:1; text-align:center; padding:18px 22px; border:1px solid var(--line); background: rgba(36,42,48,.55); border-radius:14px; box-shadow: var(--shadow);}
-    .foto .title h1{margin:0 0 6px; font-size: clamp(28px, 6vw, 56px)}
-    .foto .title p{margin:0; color:var(--muted)}
-    main{max-width:1200px; margin:0 auto; padding:28px 18px}
-    .bloque-modulos{margin:36px 0}
-    .bloque-modulos h2{margin:0 0 14px; font-size: clamp(22px, 3.6vw, 30px)}
-    .grid-modulos{ display:grid; gap:16px; grid-template-columns: repeat(5, 1fr); }
-    @media (max-width: 1100px){ .grid-modulos{grid-template-columns: repeat(3, 1fr);} }
-    @media (max-width: 720px){ .grid-modulos{grid-template-columns: repeat(2, 1fr);} }
-    @media (max-width: 460px){ .grid-modulos{grid-template-columns: 1fr;} }
-    .mod{ background: var(--card); border:1px solid var(--card-line); border-radius:14px; padding:16px; box-shadow: var(--shadow);
-      display:flex; flex-direction:column; justify-content:space-between; min-height:140px; transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease; }
-    .mod:hover{ transform: translateY(-2px); box-shadow: 0 16px 36px rgba(0,0,0,.45); border-color:#4b5a69 }
-    .mod h3{margin:4px 0 8px; font-size:18px}
-    .mod p{margin:0; color:#c4ccd4}
-    .btn{display:inline-block; padding:10px 14px; border-radius:999px; border:1px solid var(--line); text-decoration:none; color:var(--ink); background:#2b3238}
-    .btn:hover{background:#313941}
-    .btn.primary{background:linear-gradient(180deg,var(--brand),#5298df); border-color:transparent; color:#0c2035}
-    .mod.cat{background: linear-gradient(180deg,#26303a,#20262c);} 
-    .mod.cat h3{color:#cfe6ff}
-    footer{border-top:1px solid var(--line); color:#c4ccd4; text-align:center; padding:28px 18px}
-  </style>
+  <title>Cursos — Carpintería de Aluminio (Ajustado)</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
+  <header class="site-header">
     <div class="wrap">
-      <div class="brand">Curso de Carpintería de Aluminio<small>Plataforma de módulos</small></div>
-      <nav>
-        <a href="#indice">Índice</a>
+      <h1 class="brand">Cursos — Carpintería de Aluminio</h1>
+      <nav class="nav">
         <a href="#mod-1-5">Módulos 1–5</a>
         <a href="#mod-6-9">Módulos 6–9</a>
+        <a href="#indices">Índices</a>
       </nav>
     </div>
   </header>
 
-  <section id="indice" class="indice">
-    <div class="foto" style="background-image:url('img/indice-1.jpg')">
-      <div class="title"><h1>Índice 1</h1><p>Descripción breve o título de portada</p></div>
-    </div>
-    <div class="foto" style="background-image:url('img/indice-2.jpg')">
-      <div class="title"><h1>Índice 2</h1><p>Otra sección del índice</p></div>
-    </div>
-    <div class="foto" style="background-image:url('img/indice-3.jpg')">
-      <div class="title"><h1>Índice 3</h1><p>Más contenido del índice</p></div>
-    </div>
-  </section>
+  <main class="site-main">
 
-  <main>
-    <section id="mod-1-5" class="bloque-modulos">
+    <section id="mod-1-5" class="section">
       <h2>Módulos 1–5</h2>
-      <div class="grid-modulos">
-        <article class="mod"><h3>Módulo 1 — Corredizas</h3><p>Fundamentos, medidas y armado.</p><a class="btn primary link" data-key="mod1" href="#">Abrir</a></article>
-        <article class="mod"><h3>Módulo 2 — Rebatibles</h3><p>Herrajes y ajustes.</p><a class="btn primary link" data-key="mod2" href="#">Abrir</a></article>
-        <article class="mod"><h3>Módulo 3 — Oscilobatiente + DVH</h3><p>Colocación, sellado y control.</p><a class="btn primary link" data-key="mod3" href="#">Abrir</a></article>
-        <article class="mod"><h3>Módulo 4 — Proyectantes</h3><p>Componentes y montaje.</p><a class="btn primary link" data-key="mod4" href="#">Abrir</a></article>
-        <article class="mod"><h3>Módulo 5 — Banderola</h3><p>Resoluciones y terminaciones.</p><a class="btn primary link" data-key="mod5" href="#">Abrir</a></article>
-      </div>
+      <article class='mod'><h3>Módulo 1</h3><div class="video-slot">
+  <iframe src="https://www.youtube.com/embed/videoseries?list=PLXie0TBQEUrcJmxfZfplVWXeOPgY79zw5" title="YouTube playlist"
+    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen referrerpolicy="origin-when-cross-origin"></iframe>
+</div></article>
+<article class='mod'><h3>Módulo 2</h3><div class="video-slot">
+  <iframe src="https://www.youtube.com/embed/videoseries?list=PLXie0TBQEUre5jB-9H7_T6UD559e4jig8" title="YouTube playlist"
+    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen referrerpolicy="origin-when-cross-origin"></iframe>
+</div></article>
+<article class='mod'><h3>Módulo 3</h3><div class="video-slot">
+  <iframe src="https://www.youtube.com/embed/videoseries?list=PLXie0TBQEUrfC2bpaX19eIuhAgzRWUCcC" title="YouTube playlist"
+    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen referrerpolicy="origin-when-cross-origin"></iframe>
+</div></article>
+<article class='mod'><h3>Módulo 4</h3><div class="video-slot">
+  <iframe src="https://www.youtube.com/embed/videoseries?list=PLXie0TBQEUrdxxSIkd_49uWhKxrCbm8_F" title="YouTube playlist"
+    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen referrerpolicy="origin-when-cross-origin"></iframe>
+</div></article>
+<article class='mod'><h3>Módulo 5</h3><div class="video-slot">
+  <iframe src="https://www.youtube.com/embed/videoseries?list=PLXie0TBQEUrcL7z_mORKlUjVh1XolB49h" title="YouTube playlist"
+    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen referrerpolicy="origin-when-cross-origin"></iframe>
+</div></article>
     </section>
 
-    <section id="mod-6-9" class="bloque-modulos">
+    <section id="mod-6-9" class="section">
       <h2>Módulos 6–9</h2>
-      <div class="grid-modulos">
-        <article class="mod"><h3>Módulo 6 — Mosquiteros</h3><p>Tipos y colocación.</p><a class="btn primary link" data-key="mod6" href="#">Abrir</a></article>
-        <article class="mod"><h3>Módulo 7 — Mamparas</h3><p>Mediciones y sellados.</p><a class="btn primary link" data-key="mod7" href="#">Abrir</a></article>
-        <article class="mod"><h3>Módulo 8 — Live / Softtech</h3><p>Clase en vivo y flujo de trabajo.</p><a class="btn primary link" data-key="mod8" href="#">Abrir</a></article>
-        <article class="mod cat"><h3>📁 Módulo 9 — Catálogos y Software</h3><p>Accedé a los materiales complementarios.</p><a class="btn link" data-key="mod9" href="#">Abrir Carpeta de Drive</a></article>
-      </div>
+      <article class='mod'><h3>Módulo 6</h3><div class="video-slot">
+  <iframe src="https://www.youtube.com/embed/videoseries?list=PLXie0TBQEUrfibsuRIt93UTYwsLkGaX2-" title="YouTube playlist"
+    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen referrerpolicy="origin-when-cross-origin"></iframe>
+</div></article>
+<article class='mod'><h3>Módulo 7</h3><div class="video-slot">
+  <iframe src="https://www.youtube.com/embed/videoseries?list=PLXie0TBQEUrc-jzmRPyMbAw-NVlu5horD" title="YouTube playlist"
+    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen referrerpolicy="origin-when-cross-origin"></iframe>
+</div></article>
+<article class='mod'><h3>Módulo 8</h3><div class="video-slot">
+  <iframe src="https://www.youtube.com/embed/videoseries?list=PLXie0TBQEUrez660QPGUJLSl7MWqjkPSD" title="YouTube playlist"
+    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen referrerpolicy="origin-when-cross-origin"></iframe>
+</div></article>
+<article class='mod mod-cat'>
+    <h3>📁 Módulo 9 — Catálogos y Software</h3>
+    <p>Accedé a los materiales complementarios:</p>
+    <p><a class="btn" href="https://drive.google.com/drive/folders/1ZkRVmLe19DCprnZ7P7LSBx8IZNVSavOo" target="_blank" rel="noopener">Abrir Carpeta de Drive</a></p>
+  </article>
     </section>
+
+    <section id="indices" class="indices">
+      <figure class="indice foto" style="background-image:url('img/indice-1.jpg')"><figcaption><h3>Índice 1</h3></figcaption></figure>
+      <figure class="indice foto" style="background-image:url('img/indice-2.jpg')"><figcaption><h3>Índice 2</h3></figcaption></figure>
+      <figure class="indice foto" style="background-image:url('img/indice-3.jpg')"><figcaption><h3>Índice 3</h3></figcaption></figure>
+    </section>
+
   </main>
 
-  <footer>Curso de Carpintería de Aluminio — Plataforma de Módulos</footer>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© Carpintería de Aluminio — Plataforma de Cursos</p>
+    </div>
+  </footer>
 
-  <script src="config.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
