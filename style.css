@@ -256,3 +256,53 @@ body{font-family: Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif; backgro
 }
 @media (max-width: 900px){ .logo-card img{ max-height: 80%; } }
 @media (max-width: 640px){ .logo-card img{ max-height: 78%; } }
+
+
+/* ===== v9: Máxima legibilidad del logo ===== */
+.hero-wrap{
+  grid-template-columns: 200px 1fr 200px; /* más espacio para subir tamaño */
+}
+@media (max-width: 900px){
+  .hero-wrap{ grid-template-columns: 140px 1fr 140px; }
+}
+
+.logo-card{
+  height: 110px; /* más alto */
+}
+@media (max-width: 900px){ .logo-card{ height: 92px; } }
+@media (max-width: 640px){ .logo-card{ height: 84px; width: 240px; } }
+
+/* Base metal (más claro) abajo del todo */
+.logo-card .metal{ z-index: 0; }
+
+/* Textura rayada, por debajo del logo */
+.logo-card::after{
+  z-index: 0;
+  opacity: .12;
+}
+
+/* NUEVO: placa blanca brillante detrás del logo para contraste extremo */
+.logo-card::before{
+  content: "";
+  position: absolute;
+  inset: 8px;                 /* deja un borde para que se vea el metal */
+  border-radius: 12px;
+  background: linear-gradient(180deg, #ffffff, #eef3f8);
+  box-shadow:
+    inset 0 0 0 1px rgba(0,0,0,.08),
+    0 2px 8px rgba(0,0,0,.12);
+  z-index: 1;                 /* por encima de metal/stripes, por debajo del logo */
+}
+
+/* Logo por encima de todo, más grande y con doble halo */
+.logo-card img{
+  position: relative;
+  z-index: 3;
+  max-height: 86%;
+  filter:
+    drop-shadow(0 0 2px rgba(255,255,255,.95))   /* halo claro */
+    drop-shadow(0 2px 0 rgba(0,0,0,.35))         /* sombra sutil inferior */
+    contrast(1.38) brightness(1.1);
+}
+@media (max-width: 900px){ .logo-card img{ max-height: 82%; } }
+@media (max-width: 640px){ .logo-card img{ max-height: 80%; } }
