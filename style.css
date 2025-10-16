@@ -335,3 +335,28 @@ body{font-family: Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif; backgro
 }
 @media (max-width: 900px){ .logo-card img{ max-height: 82%; } }
 @media (max-width: 640px){ .logo-card img{ max-height: 80%; } }
+
+
+/* ===== v11: Caption de marca para asegurar lectura del texto ===== */
+.logo-card{
+  display: grid;
+  place-items: center;
+  row-gap: 4px;
+  padding: 6px 10px;
+}
+.logo-card img{ display:block; }
+.logo-caption{
+  position: relative;
+  z-index: 2;
+  display:block;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: .4px;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0,0,0,.7);
+  transform: translateY(-2px);
+  white-space: nowrap;
+}
+@media (max-width: 640px){
+  .logo-caption{ font-size: 11px; letter-spacing: .35px; }
+}
