@@ -465,3 +465,52 @@ body{font-family: Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif; backgro
   image-rendering: -webkit-optimize-contrast;
   filter: contrast(1.22) brightness(1.02);
 }
+
+
+/* ===== v14: Header cromado como la captura ===== */
+.hero-wrap{
+  padding: 8px 16px 10px;
+  grid-template-columns: 230px 1fr 230px;
+  gap: 20px;
+}
+@media (max-width: 980px){
+  .hero-wrap{ grid-template-columns: 170px 1fr 170px; gap: 14px; }
+}
+.hero-text h1{ font-size: clamp(22px, 3.6vw, 30px); letter-spacing: .2px; }
+.hero-text .sub{ margin-top: 2px; opacity:.95 }
+
+.logo-card{
+  height: 96px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.25);
+  box-shadow:
+    inset 0 0 0 1px rgba(0,0,0,.18),
+    0 10px 28px rgba(0,0,0,.35);
+}
+@media (max-width: 980px){ .logo-card{ height: 82px; } }
+@media (max-width: 640px){ .logo-card{ height: 74px; width: 248px; } }
+
+/* Placa cromada con brillo superior y sutil bisel */
+.logo-card .metal{
+  position:absolute; inset:0; border-radius:18px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.65), rgba(255,255,255,.15) 26%, rgba(255,255,255,0) 35%) /* brillo superior */,
+    linear-gradient(180deg, #e9f0f7, #c3d0db 58%, #e6edf4);                                           /* cuerpo aluminio */
+}
+.logo-card::before{
+  content:""; position:absolute; inset:0; border-radius:18px;
+  background: radial-gradient(120% 60% at 50% -10%, rgba(255,255,255,.6), rgba(255,255,255,0) 55%);
+  pointer-events:none; mix-blend-mode:screen; opacity:.4;            /* flare superior */
+}
+.logo-card::after{
+  content:""; position:absolute; inset:0; border-radius:18px;
+  background-image: repeating-linear-gradient(135deg, rgba(255,255,255,.14) 0 1px, rgba(0,0,0,0) 1px 9px);
+  opacity:.22; mix-blend-mode:soft-light; pointer-events:none;       /* cepillado sutil */
+}
+
+/* Logo negro, nítido y un pelín más grande */
+.logo-card img{
+  position:relative; z-index:1; max-height:72%; width:auto;
+  image-rendering: -webkit-optimize-contrast;
+  filter: contrast(1.24) brightness(1.03);
+}
