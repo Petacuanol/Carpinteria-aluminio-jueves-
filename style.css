@@ -72,3 +72,26 @@ body{font-family: Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif; backgro
 
 /* Footer */
 .site-footer{border-top:1px solid var(--line); color:#9dafbf; text-align:center; padding:24px 18px}
+
+
+/* ===== Índices como <img>: mostrar todo el texto y un poco más pequeñas ===== */
+.imagenes-full{
+  margin-top:30px;
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+  align-items:center;
+}
+.full-img{
+  width:100%;
+  max-width: 1280px;   /* no se hace gigante en pantallas muy anchas */
+  height:auto;
+  max-height: 80vh;    /* un poco más chica que pantalla completa */
+  object-fit: contain; /* se ve la imagen completa, sin recortes */
+  background: #0f1419; /* fondo oscuro detrás por si hay bordes */
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+@media (max-width: 680px){
+  .full-img{ max-height: 70vh; }
+}
