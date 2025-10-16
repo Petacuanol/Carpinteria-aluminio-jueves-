@@ -1,63 +1,74 @@
-/* ====== Estilo base ====== */
+/* ===== Estilo inspirado en la captura ===== */
 :root{
-  --bg:#1f2328;       /* metalizado oscuro */
-  --ink:#e9eef3;
-  --muted:#c4ccd4;
-  --line:#3a434b;
-  --panel:#242a30;
+  --bg:#0f1419;       /* base más oscura */
+  --panel:#171c21;    /* cards */
+  --ink:#eef2f6;      /* texto */
+  --muted:#c0c8d0;
+  --line:#2a333c;
+  --shadow:0 18px 40px rgba(0,0,0,.45);
 }
 *{box-sizing:border-box}
 html,body{margin:0;padding:0;scroll-behavior:smooth}
-body{font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+body{font-family: Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif; background:var(--bg); color:var(--ink); line-height:1.55}
 
-/* ====== Header ====== */
-.site-header{position:sticky;top:0;z-index:50;background:rgba(20,22,25,.78);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
-.wrap{max-width:1400px;margin:0 auto;padding:12px 18px;display:flex;align-items:center;justify-content:space-between}
-.brand{font-size:18px;margin:0}
-.nav a{color:var(--muted);text-decoration:none;margin-left:14px;padding:8px 10px;border-radius:10px}
-.nav a:hover{color:#fff;background:#2b3238}
+/* Header fijo minimal */
+.site-header{position:sticky; top:0; z-index:40; backdrop-filter: blur(8px); background:rgba(10,12,15,.7); border-bottom:1px solid var(--line)}
+.header-wrap{max-width:1400px; margin:0 auto; padding:10px 18px; display:flex; align-items:center; justify-content:space-between}
+.nav a{color:#9dafbf; text-decoration:none; margin-left:14px; padding:8px 12px; border-radius:10px}
+.nav a:hover{color:#fff; background:#1b232b}
 
-/* ====== Main ====== */
-.site-main{max-width:1400px;margin:0 auto;padding:24px 18px}
-.section{margin:28px 0}
-.section h2{margin:0 0 14px;font-size:clamp(22px,3.6vw,30px)}
+/* Titulares secciones */
+.site-main{max-width:1400px; margin:0 auto; padding:22px 18px}
+.section{margin:22px 0 30px}
+.section h2{margin:6px 0 18px; font-size: clamp(20px, 3vw, 28px); color:#dbe6f3}
 
-/* ====== Grids de módulos ====== */
-.grid{display:grid; gap:16px; margin:14px 0}
+/* Grid: primera fila 5 cards, segunda 4 cards */
+.grid{display:grid; gap:18px}
 .grid.five{grid-template-columns: repeat(5, 1fr)}
 .grid.four{grid-template-columns: repeat(4, 1fr)}
 @media (max-width: 1200px){ .grid.five{grid-template-columns: repeat(3, 1fr)} .grid.four{grid-template-columns: repeat(3, 1fr)} }
 @media (max-width: 900px){ .grid.five, .grid.four{grid-template-columns: repeat(2, 1fr)} }
 @media (max-width: 560px){ .grid.five, .grid.four{grid-template-columns: 1fr} }
 
-.mod{
-  background:var(--panel);
+/* Card estilo captura */
+.card{
+  background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.06)), var(--panel);
   border:1px solid var(--line);
-  border-radius:14px;
-  padding:12px;
-  box-shadow:0 12px 28px rgba(0,0,0,.3);
-  display:flex; flex-direction:column; gap:10px;
+  border-radius:18px;
+  padding:16px;
+  box-shadow: var(--shadow);
+  display:flex; flex-direction:column; gap:12px;
+  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
 }
-.mod h3{margin:0}
-.mod p{margin:0;color:var(--muted)}
-.btn{display:inline-block;padding:10px 14px;border-radius:999px;border:1px solid var(--line);text-decoration:none;color:var(--ink);background:#2b3238}
-.btn:hover{background:#313941}
-.mod-cat{background:linear-gradient(180deg,#26303a,#20262c)}
+.card:hover{ transform: translateY(-2px); box-shadow: 0 24px 60px rgba(0,0,0,.55); border-color:#3a4652 }
+.card h3{margin:0; font-size:16px}
+.card p{margin:0; color:var(--muted)}
+.card.cat{ background: linear-gradient(180deg, rgba(120,150,180,.08), rgba(0,0,0,.08)), var(--panel); }
 
-/* ====== Video responsive ====== */
-.video{position:relative; padding-top:56.25%; background:#0e1116; border:1px solid var(--line); border-radius:10px; overflow:hidden}
-.video iframe{position:absolute; inset:0; width:100%; height:100%; border:0}
-
-/* ====== Índices ====== */
-.indices{margin:32px 0 0}
-.indice{
-  width:100%;
-  height:100vh;
-  min-height:520px;
-  background-size:cover;
-  background-position:center;
+/* Botón redondeado con gradiente azul */
+.btn{
+  align-self:flex-start;
+  display:inline-block;
+  padding:10px 18px;
+  border-radius:999px;
+  background: linear-gradient(180deg, #6eb6ff, #4d97df);
+  color:#061b30;
+  text-decoration:none;
+  font-weight:600;
+  border:none;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.22), 0 8px 22px rgba(0,0,0,.35);
 }
-/* sin overlays ni botones; solo la imagen */
+.btn:hover{ filter: brightness(1.05) }
+.card.cat .btn{ background: linear-gradient(180deg, #8fb6ff, #6aa0ea) }
 
-/* ====== Footer ====== */
-.site-footer{border-top:1px solid var(--line);color:var(--muted);padding:24px 18px;text-align:center}
+/* Imágenes full-screen al final */
+.imagenes-full{margin-top:30px}
+.imagenes-full .full{
+  width:100%; height:100vh; min-height:520px;
+  background-size:cover; background-position:center;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+
+/* Footer */
+.site-footer{border-top:1px solid var(--line); color:#9dafbf; text-align:center; padding:24px 18px}
