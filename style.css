@@ -95,3 +95,59 @@ body{font-family: Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif; backgro
 @media (max-width: 680px){
   .full-img{ max-height: 70vh; }
 }
+
+
+/* ===== Ajuste v4: imágenes un poco más chicas y separadas ===== */
+.imagenes-full{ gap:32px; }
+.full-link{ display:block; width:100%; }
+.full-img{
+  display:block;
+  width:100%;
+  max-width: 1280px;
+  height:auto;
+  max-height: 65vh;    /* más chica para ver todo el texto */
+  object-fit: contain;
+  background: #0f1419;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  margin: 0 auto;
+  image-rendering: -webkit-optimize-contrast; /* mejora nitidez en WebKit */
+  image-rendering: optimizeQuality;
+}
+@media (max-width: 680px){
+  .full-img{ max-height: 58vh; }
+}
+
+
+/* ===== v5: Fondo más metalizado detrás de las imágenes ===== */
+.full-link{
+  position: relative;
+  display:block;
+  width:100%;
+  max-width: 1320px;           /* un poco más ancho que la imagen */
+  margin: 0 auto;
+  padding: 12px;               /* margen interno para que se vea el metal alrededor */
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background:
+    radial-gradient(1200px 500px at 20% 0%, rgba(255,255,255,.08), transparent 60%),
+    linear-gradient(160deg, #2b3138, #1e2329 60%);
+  box-shadow: 0 16px 40px rgba(0,0,0,.35);
+  overflow: hidden;
+}
+.full-link::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(135deg, rgba(255,255,255,.08) 0 2px, rgba(0,0,0,0) 2px 9px);
+  mix-blend-mode: soft-light;
+  opacity: .55;
+  pointer-events: none;
+}
+/* El <img> sin borde, para que se vea el metal del contenedor alrededor */
+.full-img{
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+}
